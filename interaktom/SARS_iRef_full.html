@@ -1,0 +1,108 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 750px;
+            height: 750px;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"color": "#7392ca", "id": "A0A663DJA2", "label": "ORF10", "shape": "dot", "title": "A0A663DJA2 [4]", "value": 4}, {"color": "#8bd4e3", "id": "P0DTC2", "label": "S", "shape": "dot", "title": "P0DTC2 [3]", "value": 3}, {"color": "#7392ca", "id": "P0DTC3", "label": "ORF3a", "shape": "dot", "title": "P0DTC3 [6]", "value": 6}, {"color": "#8bd4e3", "id": "P0DTC4", "label": "E", "shape": "dot", "title": "P0DTC4 [5]", "value": 5}, {"color": "#8bd4e3", "id": "P0DTC5", "label": "M", "shape": "dot", "title": "P0DTC5 [7]", "value": 7}, {"color": "#7392ca", "id": "P0DTC6", "label": "ORF6", "shape": "dot", "title": "P0DTC6 [5]", "value": 5}, {"color": "#7392ca", "id": "P0DTC7", "label": "ORF7a", "shape": "dot", "title": "P0DTC7 [7]", "value": 7}, {"color": "#7392ca", "id": "P0DTC8", "label": "ORF8", "shape": "dot", "title": "P0DTC8 [2]", "value": 2}, {"color": "#8bd4e3", "id": "P0DTC9", "label": "N", "shape": "dot", "title": "P0DTC9 [6]", "value": 6}, {"color": "#7392ca", "id": "P0DTD2", "label": "ORF9b", "shape": "dot", "title": "P0DTD2 [3]", "value": 3}, {"color": "#7392ca", "id": "P0DTD3", "label": "ORF9c", "shape": "dot", "title": "P0DTD3 [0]", "value": 0}, {"color": "#7392ca", "id": "P0DTD8", "label": "ORF7b", "shape": "dot", "title": "P0DTD8 [5]", "value": 5}, {"color": "#7392ca", "id": "P0DTF1", "label": "ORF3b", "shape": "dot", "title": "P0DTF1 [0]", "value": 0}, {"color": "#7392ca", "id": "P0DTG0", "label": "ORF3d", "shape": "dot", "title": "P0DTG0 [0]", "value": 0}, {"color": "#7392ca", "id": "P0DTG1", "label": "ORF3c", "shape": "dot", "title": "P0DTG1 [0]", "value": 0}, {"color": "#f89868", "id": "YP_009725297", "label": "Nsp1", "shape": "dot", "title": "YP_009725297 [1]", "value": 1}, {"color": "#f89868", "id": "YP_009725298", "label": "Nsp2", "shape": "dot", "title": "YP_009725298 [2]", "value": 2}, {"color": "#f89868", "id": "YP_009725299", "label": "Nsp3", "shape": "dot", "title": "YP_009725299 [2]", "value": 2}, {"color": "#f89868", "id": "YP_009725300", "label": "Nsp4", "shape": "dot", "title": "YP_009725300 [3]", "value": 3}, {"color": "#f89868", "id": "YP_009725301", "label": "Nsp5", "shape": "dot", "title": "YP_009725301 [1]", "value": 1}, {"color": "#f89868", "id": "YP_009725302", "label": "Nsp6", "shape": "dot", "title": "YP_009725302 [1]", "value": 1}, {"color": "#f89868", "id": "YP_009725303", "label": "Nsp7", "shape": "dot", "title": "YP_009725303 [5]", "value": 5}, {"color": "#f89868", "id": "YP_009725304", "label": "Nsp8", "shape": "dot", "title": "YP_009725304 [4]", "value": 4}, {"color": "#f89868", "id": "YP_009725305", "label": "Nsp9", "shape": "dot", "title": "YP_009725305 [2]", "value": 2}, {"color": "#f89868", "id": "YP_009725306", "label": "Nsp10", "shape": "dot", "title": "YP_009725306 [2]", "value": 2}, {"color": "#f89868", "id": "YP_009725307", "label": "Nsp12", "shape": "dot", "title": "YP_009725307 [3]", "value": 3}, {"color": "#f89868", "id": "YP_009725308", "label": "Nsp13", "shape": "dot", "title": "YP_009725308 [0]", "value": 0}, {"color": "#f89868", "id": "YP_009725309", "label": "Nsp14", "shape": "dot", "title": "YP_009725309 [3]", "value": 3}, {"color": "#f89868", "id": "YP_009725310", "label": "Nsp15", "shape": "dot", "title": "YP_009725310 [2]", "value": 2}, {"color": "#f89868", "id": "YP_009725311", "label": "Nsp16", "shape": "dot", "title": "YP_009725311 [1]", "value": 1}]);
+        edges = new vis.DataSet([{"from": "A0A663DJA2", "to": "A0A663DJA2"}, {"from": "A0A663DJA2", "to": "P0DTC3"}, {"from": "A0A663DJA2", "to": "P0DTC5"}, {"from": "A0A663DJA2", "to": "P0DTC9"}, {"from": "P0DTC2", "to": "P0DTC2"}, {"from": "P0DTC2", "to": "P0DTC4"}, {"from": "P0DTC2", "to": "P0DTC5"}, {"from": "P0DTC3", "to": "P0DTC3"}, {"from": "P0DTC3", "to": "P0DTC4"}, {"from": "P0DTC3", "to": "P0DTC7"}, {"from": "P0DTC3", "to": "P0DTD8"}, {"from": "P0DTC3", "to": "YP_009725300"}, {"from": "P0DTC4", "to": "P0DTC4"}, {"from": "P0DTC4", "to": "P0DTC9"}, {"from": "P0DTC4", "to": "P0DTD2"}, {"from": "P0DTC5", "to": "P0DTC5"}, {"from": "P0DTC5", "to": "P0DTC6"}, {"from": "P0DTC5", "to": "P0DTC7"}, {"from": "P0DTC5", "to": "P0DTC9"}, {"from": "P0DTC5", "to": "P0DTD8"}, {"from": "P0DTC6", "to": "P0DTC6"}, {"from": "P0DTC6", "to": "P0DTC7"}, {"from": "P0DTC6", "to": "YP_009725299"}, {"from": "P0DTC6", "to": "YP_009725309"}, {"from": "P0DTC7", "to": "P0DTC7"}, {"from": "P0DTC7", "to": "P0DTC9"}, {"from": "P0DTC7", "to": "P0DTD2"}, {"from": "P0DTC7", "to": "YP_009725303"}, {"from": "P0DTC8", "to": "P0DTC8"}, {"from": "P0DTC8", "to": "YP_009725304"}, {"from": "P0DTC9", "to": "P0DTC9"}, {"from": "P0DTC9", "to": "YP_009725300"}, {"from": "P0DTD2", "to": "P0DTD2"}, {"from": "P0DTD8", "to": "P0DTD8"}, {"from": "P0DTD8", "to": "YP_009725297"}, {"from": "P0DTD8", "to": "YP_009725303"}, {"from": "YP_009725298", "to": "YP_009725298"}, {"from": "YP_009725298", "to": "YP_009725310"}, {"from": "YP_009725299", "to": "YP_009725299"}, {"from": "YP_009725300", "to": "YP_009725300"}, {"from": "YP_009725301", "to": "YP_009725301"}, {"from": "YP_009725302", "to": "YP_009725302"}, {"from": "YP_009725303", "to": "YP_009725304"}, {"from": "YP_009725303", "to": "YP_009725305"}, {"from": "YP_009725303", "to": "YP_009725307"}, {"from": "YP_009725304", "to": "YP_009725304"}, {"from": "YP_009725304", "to": "YP_009725307"}, {"from": "YP_009725305", "to": "YP_009725305"}, {"from": "YP_009725306", "to": "YP_009725309"}, {"from": "YP_009725306", "to": "YP_009725311"}, {"from": "YP_009725307", "to": "YP_009725307"}, {"from": "YP_009725309", "to": "YP_009725309"}, {"from": "YP_009725310", "to": "YP_009725310"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": false,
+            "type": "continuous"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": false,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
