@@ -3,6 +3,6 @@ biopython>=1.79
 matplotlib>=3.5.1
 mechanize>=0.4.7
 ndex2>=3.4.0
-pandas>=1.4.1
+pandas>=1.4.2
 pyvis>=0.1.9
 scipy>=1.8.0
