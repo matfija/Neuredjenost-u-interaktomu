@@ -16,7 +16,7 @@
 \titlegraphic{\includegraphics[height=3cm,width=3.5cm]{MATF.png}}
 \author{Лазар Васовић}
 \institute[]{Математички факултет, Универзитет у Београду\\\url{https://github.com/matfija/Neuredjenost-u-interaktomu}}
-\date[Математички факултет]{мај 2022}
+\date[Математички факултет]{12. мај 2022}
 
 \begin{document}
 
@@ -172,6 +172,11 @@
 \end{itemize}
 \end{frame}
 
+\subsection{Анализа степених графова}
+\begin{frame}{Анализа степених графова}
+\centering\includegraphics[width=.75\textwidth]{power_graph.png}
+\end{frame}
+
 \subsection{Ток података у интерактомици}
 \begin{frame}{Ток података у интерактомици}
 \centering\includegraphics[width=.95\textwidth]{tok.png}
@@ -180,7 +185,7 @@
 \subsection{Откривање протеинских интеракција}
 \begin{frame}{Откривање протеинских интеракција}
 \begin{itemize}
-	\item Физичке интеракције између протеина махом се откривају експериментално, у лабораторији или пак рачунарски.
+	\item Физичке интеракције између протеина махом се откривају експериментално: у лабораторији или пак рачунарски.
 
 	\item Рачунарским (\textit{in silico}) приступом могу се предвидети нове интеракције на основу старих, без потребе за лабораторијом. То нпр. може бити на основу сличности разматраних система.
 
@@ -229,7 +234,7 @@
 
 	\item Проучени су интерактоми генерисани на основу одабраних протеина \textit{SARS-CoV-2}, а у њима су као особине од интереса издвојени степени повезаности и неуређености протеина.
 
-	\item Полазни протеини: мембрански ($M$) и неструктурни ($Nsp$). Базе података: $IntAct$ и $iRefIndex$. Разматране мере неуређености: аминокиселински профил, $IUPred$, $PONDR$ и многе друге.
+	\item Полазни протеини: мембрански ($M$), неструктурни ($Nsp$), сви. Базе података: $IntAct$ и $iRefIndex$. Разматране мере неуређености: аминокиселински профил, $PONDR$, суседство и многе друге.
 \end{itemize}
 \end{frame}
 
@@ -248,15 +253,39 @@
 
 	\item Мреже протеинских интеракција (интерактоми) моделују односе протеина (интерактора). Њиховом биоинформатичком анализом могуће је доћи до нових знања о разматраним протеинима.
 
-	\item На примеру анализе неуређености протеина у интерактомима генерисаним на основу одабраних протеина вируса \textit{SARS-CoV-2}, приказан је целокупан ток података у интерактомици.
+	\item Интеракције се по прикупљању складиште у релеватним базама података, након чега се могу разматрати. На примеру анализе неуређености протеина у интерактомима генерисаним на основу одабраних протеина вируса \textit{SARS-CoV-2}, у наставку ће бити приказан целокупан ток података у интерактомици.
 \end{itemize}
 \end{frame}
 
 \subsection{Литература}
 \begin{frame}{Литература}
-\nocite{*}
-\bibliographystyle{amsalpha}
-\bibliography{Interaktomika}
+Књиге које се баве биолошким мрежама уопштено:
+\begin{thebibliography}{2}
+\bibitem{} Pietro Hiram Guzzi and Swarup Roy, \textit{Biological Network Analysis}, Elsevier Inc., 2020.
+\bibitem{} Björn H. Junker and Falk Schreiber, \textit{Analysis of Biological Networks}, John Wiley \& Sons, Inc., 2008.
+\end{thebibliography}
+
+\bigskip
+
+Докторска дисертација на тему анализе биолошких мрежа:
+\begin{thebibliography}{1}
+\bibitem{} Milana Grbić, Računarske metode particionisanja i grupisanja u biološkim mrežama, 2020, snimak: \url{http://bioinfo.matf.bg.ac.rs/home/video/MATF_BIRBI_20210421_Milana_Grbic.mp4}.
+\end{thebibliography}
+\end{frame}
+
+\subsection{Литература (2)}
+\begin{frame}{Литература (2)}
+Поглавље књиге које се бави интерактомиком \textit{SARS-CoV-2}:
+\begin{thebibliography}{1}
+\bibitem{} Ziyang Gao, Senbao Lu, Oleksandr Narykov, Suhas Srinivasan, and Dmitry Korkin, \textit{Structural Genomics and Interactomics of SARS-COV2: Decoding Basic Building Blocks of the Coronavirus}, Virus Bioinformatics (Dmitrij Frishman and Manja Marz, eds.), CRC Press, 2021, pp. 121–139.
+\end{thebibliography}
+
+\bigskip
+
+Поглавље књиге које се бави неуређеношћу у интерактому:
+\begin{thebibliography}{1}
+\bibitem{} Vladimir N. Uversky, Analyzing IDPs in Interactomes, \textit{Intrinsically Disordered Proteins} (Birthe B. Kragelund and Karen Skriver, eds.), Springer Science+Business Media, LLC, 2020, pp. 895–945.
+\end{thebibliography}
 \end{frame}
 
 \end{document}
